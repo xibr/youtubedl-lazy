@@ -113,7 +113,7 @@ fi
 
 /bin/echo -e "\n### OK, now it is time to build the binaries..."
 REV=$(git rev-parse HEAD)
-#make lazy-extractors
+make lazy-extractors
 make youtube-dl youtube-dl.tar.gz
 #read -p "VM running? (y/n) " -n 1
 #wget "http://$buildserver/build/rg3/youtube-dl/youtube-dl.exe?rev=$REV" -O youtube-dl.exe
@@ -132,7 +132,7 @@ RELEASE_FILES="youtube-dl youtube-dl-$version.tar.gz"
 #for f in $RELEASE_FILES; do gpg --passphrase-repeat 5 --detach-sig "build/$version/$f"; done
 
 ROOT=$(pwd)
-python3 ../create-github-release.py ChangeLog $version "$ROOT/build/$version"
+#python3 ../create-github-release.py ChangeLog $version "$ROOT/build/$version"
 
 #ssh ytdl@yt-dl.org "sh html/update_latest.sh $version"
 #
